@@ -12,7 +12,7 @@ class Seance1View {
 		$q2 = $app->urlFor('Q2');
 		$q3 = $app->urlFor('Q3');
 		$q4 = $app->urlFor('Q4');
-		$q5 = $app->urlFor('Q5');
+		$q5 = $app->urlFor('Q5', ["page"=>1]);
 		$ach = GlobaleView::header("Liste des questions");
 		$html = '';
 		$html = $html.<<<END
