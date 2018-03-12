@@ -9,7 +9,7 @@ class Photo extends \Illuminate\Database\Eloquent\Model {
 	public $timestamps = 'false';
 
 	public function annonce() {
-		return $this->belongsTo('gamepedia\gp\models\Annonce', 'annonce_id');
+		return $this->belongsTo('models\Annonce', 'annonce_id');
 	}
 
 }

@@ -9,7 +9,7 @@ class Categorie extends \Illuminate\Database\Eloquent\Model {
 	public $timestamps = 'false';
 
 	public function annonce() {
-		return $this->belongsToMany('\gamepedia\gp\models\Categorie', 'categ_annonce', 'categ_id', 'annonces_id'); //Avec : CatAnnonce : le nom de la table qui fait l'association entre catégorie et annonce, et idAnnonce et idCateg les deux colonnes de la table
+		return $this->belongsToMany('models\Categorie', 'categ_annonce', 'categ_id', 'annonces_id'); //Avec : CatAnnonce : le nom de la table qui fait l'association entre catégorie et annonce, et idAnnonce et idCateg les deux colonnes de la table
 		}
 
 	}
