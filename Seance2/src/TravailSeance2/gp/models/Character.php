@@ -28,4 +28,8 @@ class Character extends \Illuminate\Database\Eloquent\Model {
 		return $this->belongsToMany('gamepedia\gp\models\Game', 'game2character', 'character_id', 'game_id');
 	}
 
+	public function premjeu(){
+		return $this->hasMany('gamepedia\gp\models\Game', 'id');
+	}
+
 }

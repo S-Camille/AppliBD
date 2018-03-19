@@ -16,4 +16,8 @@ class Company extends \Illuminate\Database\Eloquent\Model {
 		return $this->belongsToMany('gamepedia\gp\models\Game', 'game_publishers', 'comp_id', 'game_id');
 	}
 
+	public function prod(){
+		return $this->hasMany('gamepedia\gp\models\Platform', 'id');
+	}
+
 }

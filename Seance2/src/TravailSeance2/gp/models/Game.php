@@ -21,7 +21,7 @@ class Game extends \Illuminate\Database\Eloquent\Model {
 	}
 
 	public function rating() {
-		return $this->belongsToMany('gamepedia\gp\models\Rating_Board', 'game2rating', 'game_id', 'rating_id');
+		return $this->belongsToMany('gamepedia\gp\models\Game_Rating', 'game2rating', 'game_id', 'rating_id');
 	}
 
 	public function theme() {
@@ -42,6 +42,10 @@ class Game extends \Illuminate\Database\Eloquent\Model {
 
 	public function game2() {
 		return $this->belongsToMany('gamepedia\gp\models\Game', 'enemies', 'game2_id', 'game1_id');
+	}
+
+	public function premiereApparitionChar() {
+		return $this->belongsTo('gamepedia\gp\models\Character', 'id' );
 	}
 
 }
