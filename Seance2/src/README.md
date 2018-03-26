@@ -5,4 +5,4 @@ Ce sous-répertoire contient deux autres sous-répertoires qui contiennent :
 		* un dossier src avec les modèles demandés
 		* la préparation de la séance 2 en pdf
 	- pour le dossier TravailSeance2 :
-		*
+		* tout ce qui a été demandé
