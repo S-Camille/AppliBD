@@ -15,7 +15,7 @@ class GlobaleView {
 <head>
 		<title>Bases de données & Applications sur la base de données GamePedia</title>
         <meta charset="UTF-8">
-		<link rel="stylesheet" href="$rootUI/src/TravailSeance4/web/css/css.css" />
+		<link rel="stylesheet" href="$rootUI/src/TravailSeance5/web/css/css.css" />
 END;
 		$html = $html.<<<END
 </head>

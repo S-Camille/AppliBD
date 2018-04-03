@@ -35,7 +35,7 @@ use gamepedia\gp\controllers\testController;
 use gamepedia\gp\controllers\NouvController;
 use gamepedia\gp\controllers\Seance4Controller;
 
-$tab = parse_ini_file('src/TravailSeance4/gp/conf/conf.ini');
+$tab = parse_ini_file('src/TravailSeance5/gp/conf/conf.ini');
 $db = new DB(); 
 $db->addConnection($tab);
 $db->setAsGlobal();
