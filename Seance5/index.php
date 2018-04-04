@@ -31,9 +31,14 @@ use gamepedia\gp\controllers\Req5Controller;
 use gamepedia\gp\controllers\Seance1Controller;
 use gamepedia\gp\controllers\Seance2Controller;
 use gamepedia\gp\controllers\Seance3Controller;
-use gamepedia\gp\controllers\testController;
 use gamepedia\gp\controllers\NouvController;
 use gamepedia\gp\controllers\Seance4Controller;
+use gamepedia\gp\controllers\Partie2Seance4Controller;
+use gamepedia\gp\controllers\GenerationController;
+use gamepedia\gp\controllers\Seance5Controller;
+use gamepedia\gp\controllers\Acceder1JeuController;
+use gamepedia\gp\controllers\CollectionController;
+use gamepedia\gp\controllers\PagCollectionController;
 
 $tab = parse_ini_file('src/TravailSeance5/gp/conf/conf.ini');
 $db = new DB(); 
@@ -70,7 +75,8 @@ $app->get('/Seance4', function(){
 })->name('Seance4');
 
 $app->get('/Seance5', function(){
-	echo "À faire";
+	$ac5 = new Seance5Controller();
+	$ac5->affSeance5();
 })->name('Seance5');
 
 $app->get('/Seance6', function(){
@@ -197,7 +203,64 @@ $app->get('/Seance4Partie1', function(){
 })->name('Q1112');
 
 $app->get('/Seance4Partie2', function(){
-	echo "caca";
+	$p2cs4 = new Partie2Seance4Controller();
+	$p2cs4->affPartie2Seance4();
 })->name('Q2112');
+
+$app->get('/GenUti', function(){
+	$g1 = new GenerationController();
+	$g1->genUti();
+})->name('G1');
+
+$app->get('/GenCom', function(){
+	$g2 = new GenerationController();
+	$g2->genCom();
+})->name('G2');
+
+$app->get('/ListeComsUti', function(){
+	/*$g3 = new GenerationController();
+	$g3->listerComUti();*/
+	echo "caca";
+})->name('R1S4');
+
+$app->get('/ListeUti5Com', function(){
+	/*$g4 = new GenerationController();
+	$g4->listerUti5Com();*/
+	echo "caca";
+})->name('R2S4');
+
+$app->get('/api/games/:id', function($id){
+	$p1 = new Acceder1JeuController();
+	$p1->acces($id);
+})->name('P16');
+
+$app->get('/api/games', function(){
+	if(isset($_GET['page'])){
+		$p3 = new PagCollectionController();
+		$p3->accesCollPag($_GET['page']);
+	}else{
+		$p2 = new CollectionController();
+		$p2->accesColl();
+	}
+})->name('P2');
+
+
+$app->get('/api/games/:id/comments', function($id){
+	/*$g4 = new GenerationController();
+	$g4->listerUti5Com();*/
+	echo "cacamille";
+})->name('P5');
+
+$app->get('/api/games/:id/characters', function($id){
+	/*$g4 = new GenerationController();
+	$g4->listerUti5Com();*/
+	echo "caca";
+})->name('P7');
+
+$app->post('/api/games/:id/comments', function($id){
+	/*$g4 = new GenerationController();
+	$g4->listerUti5Com();*/
+	echo "caca";
+})->name('P8');
 
 $app->run();

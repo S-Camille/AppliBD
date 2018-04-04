@@ -11,6 +11,10 @@ class Game extends \Illuminate\Database\Eloquent\Model {
 	public function character() {
 		return $this->belongsToMany('gamepedia\gp\models\Character', 'game2character', 'game_id', 'character_id');
 	}
+
+	public function users() {
+		return $this->belongsToMany('gamepedia\gp\models\Utilisateur', 'game2user', 'game_id', 'uti_email');
+	}
 	
 	public function genre() {
 		return $this->belongsToMany('gamepedia\gp\models\Genre', 'game2genre', 'game_id', 'genre_id');
@@ -46,10 +50,6 @@ class Game extends \Illuminate\Database\Eloquent\Model {
 
 	public function premiereApparitionChar() {
 		return $this->belongsTo('gamepedia\gp\models\Character', 'id' );
-	}
-
-	public function users() {
-		return $this->hasMany('gamepedia\gp\models\Game2User', 'game2user', 'game_id', 'uti_id');
 	}
 
 	public function commentaires() {

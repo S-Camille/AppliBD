@@ -31,9 +31,10 @@ use gamepedia\gp\controllers\Req5Controller;
 use gamepedia\gp\controllers\Seance1Controller;
 use gamepedia\gp\controllers\Seance2Controller;
 use gamepedia\gp\controllers\Seance3Controller;
-use gamepedia\gp\controllers\testController;
 use gamepedia\gp\controllers\NouvController;
 use gamepedia\gp\controllers\Seance4Controller;
+use gamepedia\gp\controllers\Partie2Seance4Controller;
+use gamepedia\gp\controllers\GenerationController;
 
 $tab = parse_ini_file('src/TravailSeance4/gp/conf/conf.ini');
 $db = new DB(); 
@@ -197,7 +198,28 @@ $app->get('/Seance4Partie1', function(){
 })->name('Q1112');
 
 $app->get('/Seance4Partie2', function(){
-	echo "caca";
+	$p2cs4 = new Partie2Seance4Controller();
+	$p2cs4->affPartie2Seance4();
 })->name('Q2112');
+
+$app->get('/GenUti', function(){
+	$g1 = new GenerationController();
+	$g1->genUti();
+})->name('G1');
+
+$app->get('/GenCom', function(){
+	$g2 = new GenerationController();
+	$g2->genCom();
+})->name('G2');
+
+$app->get('/ListeComsUti/:email', function($email){
+	$g3 = new GenerationController();
+	$g3->listerComUti($email);
+})->name('R1S4');
+
+$app->get('/ListeUti5Com', function(){
+	$g4 = new GenerationController();
+	$g4->listerUti5Com();
+})->name('R2S4');
 
 $app->run();

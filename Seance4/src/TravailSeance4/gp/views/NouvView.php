@@ -9,9 +9,11 @@ class NouvView {
 	public function render($jeu) {
 		$html = "<label>";
 		foreach($jeu->users as $uti) {
-			$html .= $uti->nom." ".$uti->prenom;
+			$html .= $uti->nom." ".$uti->prenom."<br>";
 			foreach ($uti->comm as $co) {
-				$html .= $co->contenu;
+				if($co->id_game == $jeu->id){
+					$html .= $co->titre."<br>";
+				}
 			}
 		}
 		$html = substr($html,0,strlen($html)-2)."</label><br>";
