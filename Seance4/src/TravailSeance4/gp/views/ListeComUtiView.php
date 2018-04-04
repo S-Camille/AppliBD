@@ -7,8 +7,8 @@ use gamepedia\gp\views\GlobaleView;
 class ListeComUtiView {
 
 	public function rendern($name, $date) {
-		$html = "<label>".$name." ".$date."</label><br>";
-		$html = substr($html,0,strlen($html)-2)."</label><br>";
+		$html = "<label>".$name." ".$date;
+		$html .= substr($html,0,strlen($html)-2)."</label><br>";
 		return $html;
 	}
 
