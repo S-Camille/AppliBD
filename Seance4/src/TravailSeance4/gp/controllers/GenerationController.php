@@ -40,7 +40,7 @@ class GenerationController {
 		$i;
 		$users = Utilisateur::all()->pluck('email');
 		$games = Game::all()->pluck('id');
-		for ($i = 0; $i < 250000; $i++) {
+		for ($i = 0; $i < 109340; $i++) {
 			$c = new Commentaire();
 			$c->titre = $faker->sentence();
 			$c->contenu = $faker->text(80);

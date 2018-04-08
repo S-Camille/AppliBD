@@ -39,6 +39,9 @@ use gamepedia\gp\controllers\Seance5Controller;
 use gamepedia\gp\controllers\Acceder1JeuController;
 use gamepedia\gp\controllers\CollectionController;
 use gamepedia\gp\controllers\PagCollectionController;
+use gamepedia\gp\controllers\CommentaireController;
+use gamepedia\gp\controllers\CharacterController;
+use gamepedia\gp\controllers\CommentairePostController;
 
 $tab = parse_ini_file('src/TravailSeance5/gp/conf/conf.ini');
 $db = new DB(); 
@@ -235,32 +238,30 @@ $app->get('/api/games/:id', function($id){
 })->name('P16');
 
 $app->get('/api/games', function(){
-	if(isset($_GET['page'])){
+	if(isset($_GET['page'])) {
 		$p3 = new PagCollectionController();
 		$p3->accesCollPag($_GET['page']);
-	}else{
+	}
+	else {
 		$p2 = new CollectionController();
 		$p2->accesColl();
 	}
 })->name('P2');
 
-
 $app->get('/api/games/:id/comments', function($id){
-	/*$g4 = new GenerationController();
-	$g4->listerUti5Com();*/
-	echo "cacamille";
+	$p5 = new CommentaireController();
+	$p5->accesCom($id);
 })->name('P5');
 
 $app->get('/api/games/:id/characters', function($id){
-	/*$g4 = new GenerationController();
-	$g4->listerUti5Com();*/
-	echo "caca";
+	$p7 = new CharacterController();
+	$p7->accesChar($id);
 })->name('P7');
 
 $app->post('/api/games/:id/comments', function($id){
-	/*$g4 = new GenerationController();
-	$g4->listerUti5Com();*/
-	echo "caca";
+	$p8 = new CommentairePostController();
+	$data = json_decode(file_get_contents('php://input'), true);
+	$p8->postCom($id, $data['email'], $data['titre'], $data['contenu']);
 })->name('P8');
 
 $app->run();
